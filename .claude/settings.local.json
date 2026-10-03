@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($p='src\\\\data\\\\portfolio.ts'; $c=[IO.File]::ReadAllText\\($p\\); foreach\\($t in \"accent: 'orange',`n  },`n  {`n    title: 'Languages'\",\"accent: 'violet',`n  },`n  {`n    title: 'Cloud'\",\"accent: 'ink',`n  },`n  {`n    title: 'Product / Frontend'\"\\){ $n=$t -replace \"accent: '\\(\\\\w+\\)',\", \"accent: '`$1',`n    wide: true,\"; if\\(-not $c.Contains\\($t\\)\\){ \"MISSING: $t\" }; $c=$c.Replace\\($t,$n\\) }; $c=$c.Replace\\(\"    items: ['React', 'TypeScript', 'WebRTC', 'nginx', 'Google OAuth'],`n    accent: 'mint',\",\"    items: ['React', 'TypeScript', 'WebRTC', 'nginx', 'Google OAuth'],`n    accent: 'mint',`n    wide: true,\"\\); [IO.File]::WriteAllText\\($p,$c\\); Select-String -Path $p -Pattern 'wide: true' | ForEach-Object { $_.LineNumber })",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(npx vite preview --port 4173 --strictPort)",
+      "PowerShell($c = @\\(\"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\",\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"\\) | Where-Object { Test-Path $_ }; $c; Test-Path \"$env:USERPROFILE\\\\AppData\\\\Local\\\\ms-playwright\")",
+      "PowerShell(npm run build 2>&1 | Select-Object -Last 6; $s=\"C:\\\\Users\\\\shash\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-shash-Desktop-Shashank\\\\1443c8e3-d44a-4b8c-adbc-4c4647b71014\\\\scratchpad\"; node \"$s\\\\qa.mjs\" \"$s\\\\shots\")",
+      "PowerShell(npm run build 2>&1 | Select-Object -Last 2; $s=\"C:\\\\Users\\\\shash\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-shash-Desktop-Shashank\\\\1443c8e3-d44a-4b8c-adbc-4c4647b71014\\\\scratchpad\"; node \"$s\\\\qa.mjs\" \"$s\\\\shots\")",
+      "PowerShell(npm run dev -- --port 5173 --open)",
+      "PowerShell(Start-Process \"http://localhost:5173/\")"
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ Tokens */
+@theme {
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-paper: #fbf8f3; /* warm off-white */
+  --color-sand: #f3ece1; /* soft beige */
+  --color-sand-2: #eadfce;
+  --color-ink: #0e1530; /* deep navy */
+  --color-ink-2: #161f45;
+  --color-ink-3: #232d5c;
+  --color-muted: #545a72;
+  --color-orange: #e97142;
+  --color-orange-deep: #b9501f; /* orange for small text on light (AA) */
+  --color-violet: #7c5cff;
+  --color-violet-deep: #5b3ce0;
+  --color-electric: #2f6bff;
+  --color-electric-deep: #1d4fd1;
+  --color-mint: #1fb57a;
+  --color-mint-deep: #0f7a51;
+
+  --radius-card: 1.25rem;
+  --radius-chip: 0.6rem;
+
+  --shadow-card: 0 1px 0 rgb(14 21 48 / 0.04), 0 12px 32px -12px rgb(14 21 48 / 0.18);
+  --shadow-lift: 0 2px 0 rgb(14 21 48 / 0.04), 0 24px 48px -16px rgb(14 21 48 / 0.28);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -10px, 0); }
+  }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgb(31 181 122 / 0.55); }
+    100% { box-shadow: 0 0 0 10px rgb(31 181 122 / 0); }
+  }
+}
+
+/* -------------------------------------------------------------------- Base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-orange);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2.5px solid var(--color-electric);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-orange);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* --------------------------------------------------------------- Utilities */
+@utility container-x {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 5.5rem;
+  @media (width >= 1024px) {
+    padding-block: 8rem;
+  }
+}
+
+/* Subtle engineering grid */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(14 21 48 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(14 21 48 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@utility bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@utility bg-dots {
+  background-image: radial-gradient(rgb(14 21 48 / 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Card spotlight — follows --mx/--my set by SpotlightCard */
+@utility spotlight {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      var(--spot, rgb(233 113 66 / 0.12)),
+      transparent 45%
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
