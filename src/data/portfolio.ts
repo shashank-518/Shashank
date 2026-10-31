@@ -54,7 +54,7 @@ export const about = {
   keywords: ['intent classification', 'model routing', 'RAG', 'HITL workflows', 'real-time voice'],
   facts: [
     { label: 'Current role', value: 'Founding Team Member — AI Engineer', note: 'Digitomics', accent: 'orange' },
-    { label: 'Experience', value: 'Apr 2026 – Present', note: 'Production GenAI platform', accent: 'mint' },
+    { label: 'Experience', value: 'Nov 2025 – Present', note: 'Production GenAI platform', accent: 'mint' },
     { label: 'Primary focus', value: 'Agents, RAG & model routing', note: 'Text + real-time voice', accent: 'violet' },
     { label: 'Core stack', value: 'Python · FastAPI · Azure OpenAI', note: 'LangChain · LangGraph · pgvector', accent: 'electric' },
     { label: 'Location', value: 'Bengaluru, India', note: '', accent: 'ink' },
@@ -82,8 +82,8 @@ export const experience = [
   {
     company: 'Digitomics',
     role: 'Founding Team Member — AI Engineer',
-    start: '2026-04',
-    period: 'Apr 2026 – Present',
+    start: '2025-11',
+    period: 'Nov 2025 – Present',
     location: 'Bengaluru, India',
     summary:
       'Architecting a production-grade GenAI platform with FinOps, DevOps, and Generic agents, implementing intent classification, task-based model routing, tool calling, RAG, and HITL workflows.',

@@ -240,7 +240,7 @@ function HeroComposition() {
               </div>
             </div>
             <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-mint/12 px-2.5 py-1 text-[11px] font-bold text-mint-deep">
-              <span className="h-1.5 w-1.5 rounded-full bg-mint" /> Apr 2026 – Present
+              <span className="h-1.5 w-1.5 rounded-full bg-mint" /> Nov 2025 – Present
             </p>
           </div>
         </motion.div>
